@@ -1,0 +1,40 @@
+project: adx-admin
+
+http_server_config:
+  http_port: 8080
+  read_timeout: 10000
+  write_timeout: 10000
+
+redshift_config:
+  dsn: "="
+
+log_config:
+  runtime_option:
+    max_age: 168
+    path: logs/runtime.log
+    format: AccessFormatter
+    level: debug
+    report_caller: true
+  repeat_ext_option:
+    max_age: 168
+    path: logs/repeat_ext.log
+    format: AccessFormatter
+    level: info
+    report_caller: true
+  request_option:
+    max_age: 168
+    path: logs/request.log
+    format: AccessFormatter
+    level: info
+    report_caller: true
+  request_csv_option:
+    max_age: 168
+    path: logs/request_csv.log
+    format: VoidFormatter
+    level: info
+    report_caller: true
+redis_server_config:
+  addrs:
+    - "localhost:6379"
+  password: ""
+  base_timeout: 10
